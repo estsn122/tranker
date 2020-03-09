@@ -18,5 +18,15 @@ module Tranker
 
     config.generators.template_engine = :slim
     config.generators.system_tests = nil
+    config.generators do |g|
+      # CSS、JSファイル作成しない
+      g.assets false
+      # routes.rb変更しない
+      g.skip_routes false
+      # ヘルパーを作成しない
+      g.helper false
+      # testを作成しない
+      g.test_framework false
+    end
   end
 end
