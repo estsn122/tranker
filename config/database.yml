@@ -17,5 +17,5 @@ test:
 production:
   <<: *default
   database: tranker_production
-  username: tranker
+  username: <%= ENV['TRANKER_DATABASE_USER'] %>
   password: <%= ENV['TRANKER_DATABASE_PASSWORD'] %>
