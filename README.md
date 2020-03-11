@@ -28,3 +28,7 @@ https://xd.adobe.com/view/e050c9a8-0d6e-4a1f-63aa-6704fdcd4cca-9661/grid
 
 ## ERD
 https://drive.google.com/open?id=1DnPa-yjoH9EGfQFmYNNbbH8WeBMeb4tB
+
+## 開発環境
+ - Ruby 2.6.4
+ - Rails 5.2.4
