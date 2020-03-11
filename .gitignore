@@ -29,3 +29,6 @@
 /config/database.yml
 
 .generators
+
+# Ignore .idea files
+.idea
