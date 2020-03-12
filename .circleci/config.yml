@@ -4,7 +4,7 @@ orbs:
 executors:
   default:
     docker:
-      - image: circleci/ruby:2.6.3-stretch-node
+      - image: circleci/ruby:2.6.4-stretch-node
 jobs:
   build:
     executor: default
