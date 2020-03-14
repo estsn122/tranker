@@ -43,7 +43,6 @@ jobs:
           name: run tests
           command: |
             mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
             cd ~/circleci_setting
             bundle exec rspec \
               --format progress \
@@ -52,7 +51,7 @@ jobs:
               --format html \
               --out /tmp/test-results/rspec.html \
               --format progress \
-              $TEST_FILES
+              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
       # run rubocop!
       - run:
           name: run rubocop
