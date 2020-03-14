@@ -15,8 +15,9 @@ gem 'slim-rails'
 gem 'html2slim'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
+  gem 'rspec_junit_formatter'
   gem 'capybara'
   gem 'webdrivers'
 end
@@ -33,4 +34,4 @@ group :development do
   gem 'spring-commands-rspec'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
