@@ -13,10 +13,11 @@
 ActiveRecord::Schema.define(version: 2020_03_16_095949) do
 
   create_table "imported_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "twitter_id"
-    t.date "registered_on"
+    t.string "twitter_id", null: false
+    t.date "registered_on", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["twitter_id"], name: "index_imported_users_on_twitter_id", unique: true
   end
 
 end
