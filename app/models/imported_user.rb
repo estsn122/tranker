@@ -1,7 +1,5 @@
-require './app/models/concerns/twitter_rest_client'
-
 class ImportedUser < ApplicationRecord
-  extend TwitterRestClient
+  include TwitterRestClient
 
   def self.import_users
     twitter = twitter_rest_client
