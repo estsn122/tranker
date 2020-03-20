@@ -10,13 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_16_095949) do
+ActiveRecord::Schema.define(version: 2020_03_20_082209) do
 
   create_table "imported_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "twitter_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["twitter_id"], name: "index_imported_users_on_twitter_id", unique: true
+  end
+
+  create_table "point_logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "twitter_id", null: false
+    t.integer "points"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rankers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "twitter_id", null: false
+    t.integer "points"
+    t.string "name"
+    t.string "screen_name"
+    t.text "profile"
+    t.string "profile_image_url"
+    t.boolean "official", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["twitter_id"], name: "index_rankers_on_twitter_id", unique: true
   end
 
 end
