@@ -23,6 +23,7 @@ group :development, :test do
   gem 'rspec_junit_formatter'
   gem 'capybara'
   gem 'webdrivers'
+  gem 'launchy'
 end
 
 group :development do
