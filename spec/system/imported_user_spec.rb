@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'ImportedUsers', type: :system do
-  describe 'ユーザーIDの取得機能' do
+  xdescribe 'ユーザーIDの取得機能' do
     let(:imported_user) { ImportedUser.import_users }
     it 'ツイートが取得できる' do
       expect(imported_user.first.to_s).to include '#<Twitter::Tweet:'
