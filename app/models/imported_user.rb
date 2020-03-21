@@ -1,5 +1,6 @@
 class ImportedUser < ApplicationRecord
   include TwitterRestClient
+  validates :twitter_id, presence: true, uniqueness: true
 
   def self.import_users
     twitter_rest_client.search(Settings.get_user_param.word, count: Settings.get_user_param.num).take(Settings.get_user_param.num).each do |tweet|

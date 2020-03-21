@@ -16,10 +16,12 @@ gem 'slim-rails'
 gem 'html2slim'
 gem 'config'
 gem 'twitter'
+gem 'rails-i18n'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
   gem 'rspec_junit_formatter'
   gem 'capybara'
   gem 'webdrivers'
