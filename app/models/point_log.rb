@@ -3,7 +3,7 @@ class PointLog < ApplicationRecord
   validates :twitter_id, presence: true
   validates :points, presence: true
   validates :aggregated_on, presence: true
-  validates :twitter_id, :uniqueness => {:scope => :aggregated_on}
+  validates :twitter_id, uniqueness: { scope: :aggregated_on }
 
   def self.aggregate_follow_user
     twitter_id = ImportedUser.where(registered_on: nil).first.twitter_id
