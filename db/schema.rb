@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 2020_03_20_082209) do
 
   create_table "rankers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "twitter_id", null: false
-    t.integer "points"
+    t.integer "points", null: false
     t.string "name"
     t.string "screen_name"
     t.text "profile"
     t.string "profile_image_url"
-    t.boolean "official", default: false
+    t.boolean "official", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["twitter_id"], name: "index_rankers_on_twitter_id", unique: true

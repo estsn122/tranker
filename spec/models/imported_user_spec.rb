@@ -6,7 +6,7 @@ describe 'ImportedUser', type: :model do
     user.valid?
     expect(user.errors[:twitter_id]).to include('を入力してください')
   end
-  it 'twitter_idが被ってると無効' do
+  it 'twitter_idが重複すると無効' do
     create(:imported_user, twitter_id:'12345')
     user = build(:imported_user, twitter_id:'12345')
     user.valid?
