@@ -23,9 +23,11 @@ ActiveRecord::Schema.define(version: 2020_03_20_082209) do
 
   create_table "point_logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "twitter_id", null: false
-    t.integer "points"
+    t.integer "points", null: false
+    t.date "aggregated_on", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["twitter_id", "aggregated_on"], name: "index_point_logs_on_twitter_id_and_aggregated_on", unique: true
   end
 
   create_table "rankers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
