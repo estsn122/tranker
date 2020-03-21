@@ -12,4 +12,8 @@ describe 'ImportedUser', type: :model do
     user.valid?
     expect(user.errors[:twitter_id]).to include('はすでに存在します')
   end
+  it 'registered_onはデフォルトでnil' do
+    user = create(:imported_user)
+    expect(user.registered_on).to eq nil
+  end
 end
