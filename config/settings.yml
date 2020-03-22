@@ -9,4 +9,5 @@ get_user_param:
   word: '駆け出しエンジニア'
 
 aggregate_param:
-  get_follow_user_num: 3000
+  get_follow_user_num: 5000
+#  get_follow_user_num: 1600
