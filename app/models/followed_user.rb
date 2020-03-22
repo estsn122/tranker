@@ -15,7 +15,7 @@ class FollowedUser < ApplicationRecord
                     end
     end
 
-    FollowedUser.import update_sql, on_duplicate_key_update: [:truncation, :updated_at]
+    FollowedUser.import update_sql, on_duplicate_key_update: %i[truncation updated_at]
   end
 
   def self.import_followed_users(import_ids)
