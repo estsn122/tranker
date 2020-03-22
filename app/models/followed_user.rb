@@ -19,7 +19,7 @@ class FollowedUser < ApplicationRecord
   end
 
   def self.import_followed_users(import_ids)
-    imported_ids = FollowedUser.select(:twitter_id).map { |n| n.twitter_id.to_i }
+    imported_ids = FollowedUser.all.map { |n| n.twitter_id.to_i }
     import_sql = []
     (import_ids - imported_ids).each do |following|
       import_sql << FollowedUser.new(twitter_id: following.to_s, truncation: 'false')
