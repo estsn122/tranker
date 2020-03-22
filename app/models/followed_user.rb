@@ -27,8 +27,4 @@ class FollowedUser < ApplicationRecord
     end
     FollowedUser.import import_sql, on_duplicate_key_update: [:updated_at]
   end
-
-  # TODO (別クラスに実装)rankingとPointlogから、このクラスで登録しているユーザーを削除
-  # def
-  # end
 end
