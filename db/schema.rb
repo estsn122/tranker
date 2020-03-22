@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_064146) do
 
   create_table "followed_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "twitter_id", null: false
-    t.boolean "truncation", null: false
+    t.boolean "truncation", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["twitter_id"], name: "index_followed_users_on_twitter_id", unique: true
