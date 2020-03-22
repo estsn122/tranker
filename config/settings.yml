@@ -10,5 +10,7 @@ get_user_param:
 
 aggregate_param:
   get_follow_user_num: 3000
-#  get_follow_user_num: 5000
-#  get_follow_user_num: 1600
+
+truncate_param:
+  lookup_max_num: 100
+  truncate_criteria: 1000
