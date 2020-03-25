@@ -27,6 +27,8 @@ group :development, :test do
   gem 'capybara'
   gem 'webdrivers'
   gem 'launchy'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
