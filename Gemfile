@@ -14,13 +14,21 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap'
 gem 'slim-rails'
 gem 'html2slim'
+gem 'config'
+gem 'twitter'
+gem 'rails-i18n'
+gem 'activerecord-import'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
   gem 'rspec_junit_formatter'
   gem 'capybara'
   gem 'webdrivers'
+  gem 'launchy'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
@@ -33,6 +41,8 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'spring-commands-rspec'
+  gem 'pry-rails'
+  gem 'pry-nav'
 end
 
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

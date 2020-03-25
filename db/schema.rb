@@ -10,6 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_03_16_095949) do
+
+  create_table "imported_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "twitter_id", null: false
+    t.date "aggregate_following_users_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["aggregate_following_users_on"], name: "index_imported_users_on_aggregate_following_users_on"
+    t.index ["twitter_id"], name: "index_imported_users_on_twitter_id", unique: true
+  end
 
 end
