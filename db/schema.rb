@@ -12,6 +12,20 @@
 
 ActiveRecord::Schema.define(version: 2020_03_20_082209) do
 
+  create_table "followed_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "twitter_id", null: false
+    t.integer "points"
+    t.integer "followers_num"
+    t.string "name"
+    t.string "screen_name"
+    t.text "profile"
+    t.string "profile_image_url"
+    t.boolean "official_account", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["twitter_id"], name: "index_followed_users_on_twitter_id", unique: true
+  end
+
   create_table "imported_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "twitter_id", null: false
     t.date "aggregate_following_users_on"
@@ -21,26 +35,13 @@ ActiveRecord::Schema.define(version: 2020_03_20_082209) do
     t.index ["twitter_id"], name: "index_imported_users_on_twitter_id", unique: true
   end
 
-  create_table "point_logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "point_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "twitter_id", null: false
     t.integer "points", null: false
-    t.date "aggregated_on", null: false
+    t.date "recorded_on", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["twitter_id", "aggregated_on"], name: "index_point_logs_on_twitter_id_and_aggregated_on", unique: true
-  end
-
-  create_table "rankers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "twitter_id", null: false
-    t.integer "points", null: false
-    t.string "name"
-    t.string "screen_name"
-    t.text "profile"
-    t.string "profile_image_url"
-    t.boolean "official", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["twitter_id"], name: "index_rankers_on_twitter_id", unique: true
+    t.index ["twitter_id", "recorded_on"], name: "index_point_records_on_twitter_id_and_recorded_on", unique: true
   end
 
 end

@@ -1,7 +1,7 @@
 FactoryBot.define do
-  factory :ranker do
+  factory :point_record do
     sequence(:twitter_id) { |n| "98765" + n.to_s }
     points { 0 }
-    official { false }
+    recorded_on { Date.today }
   end
 end

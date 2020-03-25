@@ -1,7 +1,7 @@
 FactoryBot.define do
-  factory :point_log do
+  factory :followed_user do
     sequence(:twitter_id) { |n| "98765" + n.to_s }
     points { 0 }
-    aggregated_on { Date.today }
+    official_account { false }
   end
 end
