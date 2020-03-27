@@ -1,7 +1,7 @@
 class CreatePointRecords < ActiveRecord::Migration[5.2]
   def change
     create_table :point_records do |t|
-      t.string :twitter_id, null: false
+      t.references :twitter, type: :string, foreign_key: false
       t.integer :points, null: false
       t.date :recorded_on, null: false
       t.timestamps
