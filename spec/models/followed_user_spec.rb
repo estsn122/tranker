@@ -6,11 +6,6 @@ describe 'FollowedUser', type: :model do
     followed_user.valid?
     expect(followed_user.errors[:twitter_id]).to include('を入力してください')
   end
-  it 'pointsがないと無効' do
-    followed_user = build(:followed_user, points:'')
-    followed_user.valid?
-    expect(followed_user.errors[:points]).to include('を入力してください')
-  end
   it 'official_accountがないと無効' do
     followed_user = build(:followed_user, official_account:'')
     followed_user.valid?
