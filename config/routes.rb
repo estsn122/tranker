@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  root 'beginner_engineer#index'
+  root 'followed_users#index'
 end
