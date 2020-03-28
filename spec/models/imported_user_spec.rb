@@ -14,6 +14,6 @@ describe 'ImportedUser', type: :model do
   end
   it 'aggregate_following_users_onはデフォルトでnil' do
     imported_user  = create(:imported_user)
-    expect(imported_user.aggregate_following_users_on).to eq nil
+    expect(imported_user.aggregate_following_users_on).to be_nil
   end
 end
