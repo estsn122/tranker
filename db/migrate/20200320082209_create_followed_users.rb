@@ -1,8 +1,7 @@
 class CreateFollowedUsers < ActiveRecord::Migration[5.2]
   def change
-    create_table :followed_users,id: false do |t|
-      t.string :twitter_id, primary_key: true
-      t.integer :points
+    create_table :followed_users do |t|
+      t.string :twitter_id, null: false, index: { unique: true }
       t.integer :followers_num
       t.string :name
       t.string :screen_name
