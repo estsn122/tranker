@@ -5,13 +5,14 @@ class PointRecord < ApplicationRecord
   validates :recorded_on, presence: true
   validates :twitter_id, uniqueness: { scope: :recorded_on }
   belongs_to :followed_user, foreign_key: 'twitter_id', primary_key: 'twitter_id', optional: true
+  NUM_TO_AGGREGATE_FOLLOWING = 3000
 
   def self.aggregate_follow_users
     imported_user = ImportedUser.where(aggregate_following_users_on: nil).first
     return unless imported_user
 
     new_point_records = []
-    twitter_rest_client.friend_ids(imported_user.twitter_id.to_i).attrs[:ids].first(Settings.aggregate_param.get_follow_user_num).each do |following_id|
+    twitter_rest_client.friend_ids(imported_user.twitter_id.to_i).attrs[:ids].first(NUM_TO_AGGREGATE_FOLLOWING).each do |following_id|
       new_point_records << PointRecord.new(twitter_id: following_id, points: 1, recorded_on: Date.today)
     end
     PointRecord.import! new_point_records, on_duplicate_key_update: 'points = points + 1'
