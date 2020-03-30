@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_03_20_082209) do
   create_table "followed_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "twitter_id", null: false
     t.integer "followers_num"
+    t.integer "total_points"
     t.string "name"
     t.string "screen_name"
     t.string "profile"

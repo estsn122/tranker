@@ -3,6 +3,7 @@ class CreateFollowedUsers < ActiveRecord::Migration[5.2]
     create_table :followed_users do |t|
       t.string :twitter_id, null: false, index: { unique: true }
       t.integer :followers_num
+      t.integer :total_points
       t.string :name
       t.string :screen_name
       t.string :profile
