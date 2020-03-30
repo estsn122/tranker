@@ -6,7 +6,7 @@ class PointRecord < ApplicationRecord
   validates :twitter_id, uniqueness: { scope: :recorded_on }
   belongs_to :followed_user, foreign_key: 'twitter_id', primary_key: 'twitter_id'
 
-  def self.aggregate_follow_users
+  def self.aggregate_follow_users!
     imported_user = ImportedUser.where(aggregate_following_users_on: nil).first
     return unless imported_user
 
