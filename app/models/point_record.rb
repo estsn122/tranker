@@ -7,7 +7,7 @@ class PointRecord < ApplicationRecord
   belongs_to :followed_user, foreign_key: 'twitter_id', primary_key: 'twitter_id'
   NUM_TO_AGGREGATE_FOLLOWING = 3000
 
-  def self.aggregate_follow_users
+  def self.aggregate_follow_users!
     imported_user = ImportedUser.where(aggregate_following_users_on: nil).first
     return unless imported_user
 
