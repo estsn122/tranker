@@ -19,7 +19,7 @@ class FollowedUser < ApplicationRecord
     FollowedUser.import! update_keys, update_values, on_duplicate_key_update: %i[followers_num name screen_name profile profile_image_url]
   end
 
-  def make_followed_button(screen_name)
+  def followed_button_url(screen_name)
     'https://twitter.com/' + screen_name + '?ref_src=twsrc%5Etfw'
   end
 end
