@@ -15,7 +15,6 @@ class FollowedUser < ApplicationRecord
     ranker_ids.each_slice(100) do |hundred_in_total_ranker|
       rankers_points = hundred_in_total_ranker.map { |i| i[1] }
       twitter_rest_client.users(hundred_in_total_ranker.map { |j| j[0] }).each do |ranker|
-        binding.pry
         update_values << [ranker.id.to_s, ranker.followers_count, rankers_points.shift, ranker.name.to_s, ranker.screen_name, ranker.description.to_s, ranker.profile_image_url_https.to_s]
       end
     end
