@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2020_03_20_082209) do
     t.integer "followers_num"
     t.string "name"
     t.string "screen_name"
-    t.text "profile"
+    t.string "profile"
     t.string "profile_image_url"
     t.boolean "official_account", default: false, null: false
     t.datetime "created_at", null: false

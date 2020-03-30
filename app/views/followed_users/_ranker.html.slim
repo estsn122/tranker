@@ -1,0 +1,7 @@
+h2 = rank.to_s + "位"
+p = ranker.name
+p = ranker.screen_name
+p = ranker.point_records.sum(:points).to_s + "points"
+=link_to 'Follow ' + ranker.screen_name, ranker.make_followed_button(ranker.screen_name), class:"twitter-follow-button", 'data-show-count': "false"
+img src=ranker.profile_image_url
+script async="" charset="utf-8" src="https://platform.twitter.com/widgets.js"

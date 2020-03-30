@@ -5,7 +5,7 @@ class CreateFollowedUsers < ActiveRecord::Migration[5.2]
       t.integer :followers_num
       t.string :name
       t.string :screen_name
-      t.text :profile
+      t.string :profile
       t.string :profile_image_url
       t.boolean :official_account, null: false, default: false
       t.timestamps
