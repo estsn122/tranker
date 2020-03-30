@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_03_20_082209) do
 
-  create_table "followed_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "followed_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "twitter_id", null: false
     t.integer "followers_num"
     t.string "name"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_03_20_082209) do
     t.index ["twitter_id"], name: "index_followed_users_on_twitter_id", unique: true
   end
 
-  create_table "imported_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "imported_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "twitter_id", null: false
     t.date "aggregate_following_users_on"
     t.datetime "created_at", null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_03_20_082209) do
     t.index ["twitter_id"], name: "index_imported_users_on_twitter_id", unique: true
   end
 
-  create_table "point_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "point_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "twitter_id", null: false
     t.integer "points", null: false
     t.date "recorded_on", null: false
