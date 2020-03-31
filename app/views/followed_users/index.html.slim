@@ -1,0 +1,8 @@
+.container
+  .row
+    .mx-auto.mt-5
+      h1 駆け出しエンジニア
+  .row
+    .mx-auto.mt-5.ml-5
+      - @rankers.each_with_index do |ranker, rank|
+        = render 'ranker', ranker: ranker, rank: rank + 1
