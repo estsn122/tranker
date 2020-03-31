@@ -8,7 +8,7 @@ class PointRecord < ApplicationRecord
   NUM_TO_AGGREGATE_FOLLOWING = 3000
 
   def self.aggregate_follow_users!
-    imported_user = ImportedUser.where(aggregate_following_users_on: nil).first
+    imported_user = ImportedUser.not_aggregated
     return unless imported_user
 
     following_ids = FollowedUser.pluck(:twitter_id)

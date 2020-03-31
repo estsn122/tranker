@@ -1,6 +1,7 @@
 class ImportedUser < ApplicationRecord
   include TwitterRestClient
   validates :twitter_id, presence: true, uniqueness: true
+  scope :not_aggregated, -> { where(aggregate_following_users_on: nil).first }
   GET_USER_NUM_FROM_TWITTER = 70
   SEARCH_WORD_IN_TWITTER = '駆け出しエンジニア'.freeze
 

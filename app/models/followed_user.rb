@@ -3,10 +3,11 @@ class FollowedUser < ApplicationRecord
   validates :twitter_id, presence: true, uniqueness: true
   validates :official_account, inclusion: [true, false]
   has_many :point_records, primary_key: 'twitter_id', foreign_key: 'twitter_id'
+  scope :rankers, -> { joins(:point_records).group(:twitter_id).sum(:points).sort_by { |_, v| -v }.first(RANKERS_NUM_TO_DISPLAY).map { |n, m| [n.to_i, m] } }
   RANKERS_NUM_TO_DISPLAY = 30
 
   def self.update_rankers_information
-    ranker_ids = FollowedUser.joins(:point_records).group(:twitter_id).sum(:points).sort_by { |_, v| -v }.first(RANKERS_NUM_TO_DISPLAY).map { |n, m| [n.to_i, m] }
+    ranker_ids = FollowedUser.rankers
     return unless ranker_ids
 
     update_keys = %i[twitter_id followers_num total_points name screen_name profile profile_image_url]
